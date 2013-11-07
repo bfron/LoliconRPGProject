@@ -1,0 +1,18 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\player\PlayerController.js">
+    <Files>
+      <File FileName="Assets\script\player\PlayerMove.js" Line="5" Column="30" />
+      <File FileName="Assets\script\player\Command.js" Line="47" Column="35" />
+      <File FileName="Assets\script\BossAI.js" Line="19" Column="26" />
+      <File FileName="Assets\script\player\HitUser.js" Line="13" Column="31" />
+      <File FileName="Assets\script\player\PlayerController.js" Line="183" Column="26" />
+      <File FileName="Assets\script\GameManager\GroundOption.js" Line="73" Column="3" />
+      <File FileName="Assets\script\GameManager\HP.js" Line="38" Column="94" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
