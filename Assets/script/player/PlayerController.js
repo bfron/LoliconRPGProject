@@ -146,6 +146,8 @@ function Screen_2()
 	{
 		touched = true;
 		touchedNumber = 2;
+		
+		HP.hero_hp -= 10; // 테스트용
 	}
 }
 function Screen_3()
@@ -181,6 +183,9 @@ function Screen_4()
 		
 		if(camera_position > -10) 
 			camera_position -= 0.5;
+			
+			
+		
 		
 		cameraback = true;
 	}
@@ -214,7 +219,7 @@ function Screen_6()
 		
 		if(front == false)
 			turn();
-		
+			
 		moveforce = 1;
 		player.SetBool("idleToRun", true); // 달리는 애니메이션을 재생하라!
 	}

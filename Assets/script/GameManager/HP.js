@@ -14,6 +14,8 @@ private var hero_hp_text : GameObject;
 private var enemy_hp_bar : GameObject;
 private var enemy_hp_text : GameObject;
 
+var heroHpGauge : Transform;
+
 private var hp_set_ok : boolean;
 
 function Start () {
@@ -48,15 +50,22 @@ function Update() {
 		   max_enemy_hp = 100;
 		}
 	}
-	
+	/*
 	hero_color.g = hero_color.b = (hero_hp)/100;
 	hero_hp_bar.transform.renderer.material.SetColor("_Color", hero_color);
+	*/	
 	
-	if(hero_hp < 0)
+	if(hero_hp > 0)
+		heroHpGauge.transform.localScale.x = (hero_hp / 2.0) / 100.0;
+	else
+	{
 		hero_hp = 0;
-		
-	hero_hp_text.transform.GetComponent(TextMesh).text = hero_hp + "%";
+		heroHpGauge.transform.localScale.x = 0;
+		heroHpGauge.transform.localScale.y = 0;
+	}
 	
+	//hero_hp_text.transform.GetComponent(TextMesh).text = hero_hp + "%";
+	/*
 	if(enemy_hp > 0){
 		enemy_hp_bar.transform.localScale.x = 0.6;
 		enemy_hp_text.transform.localScale.x = 0.03;
@@ -70,5 +79,5 @@ function Update() {
 	{
 		enemy_hp_bar.transform.localScale.x = 0;
 		enemy_hp_text.transform.localScale.x = 0;
-	}
+	}*/
 }
