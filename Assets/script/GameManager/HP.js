@@ -29,8 +29,11 @@ function Start () {
 	
 	hp_set_ok = false;
 	
-	if(Application.loadedLevelName=="FirstStage")
+	if(Application.loadedLevelName=="stage01")
+	{
+		print("1스테이지!");
 		hero_hp = 100;
+	}
 }
 
 function Update() {

@@ -40,6 +40,13 @@ function OnTriggerEnter(target : Collider)
 /*	game_manager.SendMessage("Check_motion", transform.gameObject);
 	if(CheckMotion.motion == MOTION.ducking || CheckMotion.motion == MOTION.die) return; */
 	
+	transform.SendMessage("Check_Motion", SendMessageOptions.DontRequireReceiver);
+	if(PlayerController.playerMotion == "dodge")
+	{
+		print("피하는중!");
+		return;
+	}
+	
 	if(target.gameObject.tag == "magic"){
 		HP.hero_hp -= 10;
 		player.SetBool("idleToWound", true);
@@ -52,7 +59,6 @@ function OnTriggerEnter(target : Collider)
 		{
 			if(target.transform.root.animation["attack 3"].normalizedTime >= 0.3 || target.transform.root.animation["attack2"].normalizedTime >= 0.4){
 				//if(target.transform.root.tag == "monster"){
-				print("누구? " + target.name);
 					HP.hero_hp = HP.hero_hp - Attack_check(target);
 					player.SetBool("idleToWound", true);
 					PlayAttackSound();

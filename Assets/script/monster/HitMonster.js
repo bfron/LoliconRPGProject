@@ -90,8 +90,8 @@ function Effect (target : Collider) {
 	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
 	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
 	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
-	var step = Instantiate(Resources.Load("WaterStep"), position, target.transform.rotation);
-	step = Instantiate(Resources.Load("WaterStep"), position, target.transform.rotation);
+//	var step = Instantiate(Resources.Load("WaterStep"), position, target.transform.rotation);
+//	step = Instantiate(Resources.Load("WaterStep"), position, target.transform.rotation);
 }
 function PlayAttackSound()
 {

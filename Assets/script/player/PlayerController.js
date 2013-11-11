@@ -56,6 +56,8 @@ function Check_Motion()
 		playerMotion = "wound";
 	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.run"))
 		playerMotion = "run";
+	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.dodge"))
+		playerMotion = "dodge";
 	
 }
 function Update () {
@@ -67,6 +69,7 @@ function Update () {
 		player.SetBool("idleToAttack0", false);
 		player.SetBool("idleToWound", false);
 		player.SetBool("idleToSkill2", false);
+		player.SetBool("idleToDodge", false);
 		player.SetBool("idleToRun", false);
 	}
 	
@@ -77,7 +80,7 @@ function Update () {
 	else if(!Input.GetButton("Touch") && touched == true)	// 커맨드 입력 취소
 	{
 		if(touchedNumber == 5) // 터치를 뗏는데 마지막에 누른 버튼이 5번 버튼일 경우.
-			player.SetBool("idleToWound", true);
+			player.SetBool("idleToDodge", true);
 			
 		touched = false; // 터치 입력 초기화
 		touchedNumber = 0;

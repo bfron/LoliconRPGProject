@@ -8,9 +8,9 @@ function Start () {
 
 	if(Application.loadedLevelName == "stage01")
 	{
-		temp = Instantiate(Resources.Load("해골 병사"), Vector3(250, 7.6, 0), Quaternion.identity);
+		 temp = Instantiate(Resources.Load("해골 병사"), Vector3(-20, 5, -4), Quaternion.identity);
 		 temp.transform.localRotation.y = -1;
-		 
+		/* 
 		 temp = Instantiate(Resources.Load("해골 병사"), Vector3(380, 7.6, 0), Quaternion.identity);
 		 temp.transform.localRotation.y = -1;
 		
@@ -27,7 +27,7 @@ function Start () {
 		 temp.transform.localRotation.y = -1;
 		 
 		 temp = Instantiate(Resources.Load("해골 법사"), Vector3(1080, 7.6, 0), Quaternion.identity);
-		 temp.transform.localRotation.y = -1;
+		 temp.transform.localRotation.y = -1; */
 	}
 	else if(Application.loadedLevelName == "stage02")
 	{
