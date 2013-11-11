@@ -5,10 +5,14 @@
 private var game_manager : GameObject;
 private var fight : boolean = false;
 private var skil_damage : float;
-private var player : Animator; // 플레이어 Animator
+private var player : Animator; // 플레이어 Animator]
 
 //소리
 var attack_Sound : AudioClip;
+
+// 효과
+var woundEffect : Transform;
+private var beforeEffect : Transform;
 
 private var userDie : boolean;
 
@@ -16,6 +20,7 @@ function Start () {
 	userDie = false;
 	game_manager = GameObject.Find("GameManager");
 	player = transform.GetComponent(Animator);
+	beforeEffect = null;
 /*	transform.animation["run"].speed = 2.5;
 	transform.animation["attack"].speed = 1.5;
 	transform.animation["gethit"].speed = 0.5; */
@@ -62,7 +67,7 @@ function OnTriggerEnter(target : Collider)
 					HP.hero_hp = HP.hero_hp - Attack_check(target);
 					player.SetBool("idleToWound", true);
 					PlayAttackSound();
-					Effect(target);
+					Effect();
 				//}
 			}
 		}
@@ -73,7 +78,7 @@ function OnTriggerEnter(target : Collider)
 					HP.hero_hp = HP.hero_hp - Attack_check(target);
 					player.SetBool("idleToWound", true);
 					PlayAttackSound();
-					Effect(target);
+					Effect();
 				}
 			}
 		}
@@ -117,13 +122,17 @@ function Attack_check(target : Collider) : int{
 	}
 }
 
-function Effect (target : Collider) {
-	var position = target.transform.position;
-	position.z -= 1.5;
-	var spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
+function Effect() { 
+	print("이펙트!");
+	var position = transform.position;
+	position.z -= 3;
+	position.y += 6;
+	if(beforeEffect != null)
+		Destroy(beforeEffect.gameObject);
+	beforeEffect = Instantiate(woundEffect, position, Random.rotation);//Random.rotation);
+/*	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
 	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
-	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
-	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
+	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation); */
 }
 function PlayAttackSound()
 {

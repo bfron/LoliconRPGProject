@@ -52,6 +52,8 @@ function Update () {
 	{
 		if(di < visible && di > range){
 			Move();
+		}else if(di <= range && (PlayerController.moveforce == 1 && PlayerController.frontSight == false)) {
+			Move();
 		}else if(di <= range && (PlayerController.player_die == false)){
 			if(cast_time != 0) Uncasting();
 			Attack();

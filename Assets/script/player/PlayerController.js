@@ -13,7 +13,7 @@ private var screenType : float; // 현재 구동되고 있는 화면비
 static var moveforce : int; // 캐릭터가 움직여야 하는가!
 static var jumpforce : boolean;
 
-private var front : boolean = true; // 캐릭터는 앞을 보는가?
+static var frontSight : boolean = true; // 캐릭터는 앞을 보는가?
 private var amtRot : float; // 플레이어가 돌아서는 각도
 
 private var hitInfo : RaycastHit; // 충돌체 정보
@@ -97,7 +97,7 @@ function Update () {
 		if(camera_position < 10) // 카메라 위치를 되돌린다.
 			camera_position += 0.5;
 			
-		if(front == false && controller.isGrounded) // 캐릭터를 돌린다.
+		if(frontSight == false && controller.isGrounded) // 캐릭터를 돌린다.
 			turn();
 	}
 }
@@ -178,7 +178,7 @@ function Screen_4()
 		touched = true;
 		touchedNumber = 4;
 	
-		if(front == true) // 캐릭터가 앞을 보고 있다면 돌리자
+		if(frontSight == true) // 캐릭터가 앞을 보고 있다면 돌리자
 			turn();
 			
 		moveforce = 1;
@@ -220,7 +220,7 @@ function Screen_6()
 		touched = true;
 		touchedNumber = 6;
 		
-		if(front == false)
+		if(frontSight == false)
 			turn();
 			
 		moveforce = 1;
@@ -271,15 +271,15 @@ function Screen_9()
 function turn() // 플레이어의 방향을 돌린다
 {
 	transform.rotation.y *= -1; // 90도에서 -90도로, -90도에서 90도로
-	if(front == true)
-		front = false;
+	if(frontSight == true)
+		frontSight = false;
 	else
-		front = true;
+		frontSight = true;
 }
 
 function target_click() : boolean // 타겟을 터치 했을 때 처리 -> 기본공격
 {
-	if(front == true){
+	if(frontSight == true){
 		game_manager.SendMessage("Click_object", null);
 		if(ClickObject.target == null) 
 			return false;
