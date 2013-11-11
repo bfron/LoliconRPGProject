@@ -16,7 +16,7 @@ private var tempTextString : String;
 
 function Start () {
 	ani_playing = false;
-	ani_num = 1;
+	ani_num = 7;
 	Show1();
 	
 	BonusMessage.bonusOk = false;
@@ -26,7 +26,7 @@ function Update () {
 
 	if(Input.GetButton("attack"))
 	{
-		ani_num = 6;
+		ani_num = 7;
 		print("스킵");
 	}
 	else if(Input.GetButton("Touch") && ani_playing == false)

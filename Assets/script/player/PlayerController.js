@@ -38,6 +38,7 @@ function Start () {
 	monsterAttack = false;
 	screenType = (Screen.height * 1.0) / (Screen.width * 1.0);
 	controller = GetComponent(CharacterController);
+	player_die = false;
 
 }
 function Check_Motion()
