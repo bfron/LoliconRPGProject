@@ -44,7 +44,7 @@ function Show1() {
 					for(i=1;i<=tempTextString.Length;i++)
 					{
 						messageText.text = tempTextString.Substring(0, i);
-						yield WaitForSeconds(0.04);
+						yield WaitForSeconds(0.02);
 					}
 					//animation.Play("MessageFade");
 					ani_num++;
@@ -56,7 +56,7 @@ function Show1() {
 					for(i=1;i<=tempTextString.Length;i++)
 					{
 						messageText.text = tempTextString.Substring(0, i);
-						yield WaitForSeconds(0.04);
+						yield WaitForSeconds(0.02);
 					}
 					ani_num++;
 					ani_playing = false;
@@ -67,7 +67,7 @@ function Show1() {
 					for(i=1;i<=tempTextString.Length;i++)
 					{
 						messageText.text = tempTextString.Substring(0, i);
-						yield WaitForSeconds(0.04);
+						yield WaitForSeconds(0.02);
 					}
 					ani_num++;
 					ani_playing = false;
@@ -106,7 +106,7 @@ function Show1() {
 					for(i=1;i<=tempTextString.Length;i++)
 					{
 						messageText.text = tempTextString.Substring(0, i);
-						yield WaitForSeconds(0.04);
+						yield WaitForSeconds(0.02);
 					}
 					ani_num++;
 					ani_playing = false;

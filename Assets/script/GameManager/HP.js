@@ -28,6 +28,9 @@ function Start () {
 	enemy_color = Color.white;
 	
 	hp_set_ok = false;
+	
+	if(Application.loadedLevelName=="FirstStage")
+		hero_hp = 100;
 }
 
 function Update() {
