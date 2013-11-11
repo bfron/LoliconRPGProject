@@ -48,18 +48,20 @@ function Update () {
 	if(CheckMotion.motion == MOTION.gethit || CheckMotion.motion == MOTION.die) return;
 	
 	var di = transform.position.x - user.transform.position.x;
+	
 	if(die == false)
 	{
-		if(di < visible && di > range){
-			Move();
-		}else if(di <= range && (PlayerController.moveforce == 1 && PlayerController.frontSight == false)) {
+		user.transform.root.SendMessage("Check_Motion", SendMessageOptions.DontRequireReceiver);
+		if((di < visible && di > range) || (di <= range && (PlayerController.moveforce == 1 && PlayerController.frontSight == false))){
 			Move();
 		}else if(di <= range && (PlayerController.player_die == false)){
 			if(cast_time != 0) Uncasting();
-			Attack();
+			if(PlayerController.playerMotion != "dodge")
+				Attack();
 		}else{
 			if(cast_time != 0) Uncasting();
-			animation.Play("idle");
+			if(PlayerController.playerMotion != "dodge")
+				animation.Play("idle");
 		}
 	}
 	
@@ -163,7 +165,7 @@ function Set_monster() {
 	if(transform.name == "해골 병사(Clone)"){
 		visible = 60;
 		range = 10;
-		speed = 30;
+		speed = 20;
 		damage = 3;
 		hp = 20;
 		app_type = 1;
@@ -171,7 +173,7 @@ function Set_monster() {
 	}else if(transform.name == "해골 전사(Clone)"){
 		visible = 80;
 		range = 10;
-		speed = 20;
+		speed = 15;
 		damage = 6;
 		hp = 35;
 		app_type = 1;
@@ -179,7 +181,7 @@ function Set_monster() {
 	}else if(transform.name == "해골 창사(Clone)"){
 		visible = 60;
 		range = 14;
-		speed = 20;
+		speed = 15;
 		damage = 4;
 		hp = 30;
 		app_type = 2;
