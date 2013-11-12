@@ -1,13 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Trap\Trap_HpDown.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\player\HitUser.js">
     <Files>
       <File FileName="Assets\script\Trap\Trap_HpUp.js" Line="1" Column="1" />
       <File FileName="Assets\script\player\PlayerController.js" Line="1" Column="1" />
       <File FileName="Assets\script\monster\HitMonster.js" Line="1" Column="1" />
-      <File FileName="Assets\script\GameManager\Button.js" Line="1" Column="1" />
-      <File FileName="Assets\script\Trap\Trap_HpDown.js" Line="27" Column="6" />
-      <File FileName="Assets\script\player\HitUser.js" Line="1" Column="1" />
+      <File FileName="Assets\script\Trap\Trap_HpDown.js" Line="1" Column="1" />
+      <File FileName="Assets\script\player\HitUser.js" Line="149" Column="17" />
+      <File FileName="Assets\script\GameManager\HP.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

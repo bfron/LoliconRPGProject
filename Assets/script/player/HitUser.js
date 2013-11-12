@@ -146,9 +146,9 @@ function HpUpEffect()
 {
 	var position = transform.position;
 	position.x -= 1;
-	position.z -= 3;
-	position.y += 6;
-	var effect : Transform = Instantiate(hpUpEffect, position, Random.rotation);//Random.rotation);
+	position.z -= 5;
+	position.y += 8;
+	var effect : Transform = Instantiate(hpUpEffect, position, Quaternion.identity);//Random.rotation);
 	yield WaitForSeconds(3);
 	Destroy(effect.gameObject);
 }
