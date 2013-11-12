@@ -61,6 +61,9 @@ function Update() {
 	hero_hp_bar.transform.renderer.material.SetColor("_Color", hero_color);
 	*/	
 	
+	if(hero_hp > 100)
+		hero_hp = 100;
+		
 	if(hero_hp > 0)
 		heroHpGauge.transform.localScale.x = (hero_hp / 2.0) / 100.0;
 	else

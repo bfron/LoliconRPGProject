@@ -57,6 +57,8 @@
      <Compile Include="Assets\script\Message\Ending.js" />
      <Compile Include="Assets\script\Message\endingMessage.js" />
      <Compile Include="Assets\script\Message\prologue.js" />
+     <Compile Include="Assets\script\Trap\Trap_HpDown.js" />
+     <Compile Include="Assets\script\Trap\Trap_HpUp.js" />
      <Compile Include="Assets\script\UISet.js" />
      <Compile Include="Assets\script\camera_move.js" />
      <Compile Include="Assets\script\monster\HitMonster.js" />

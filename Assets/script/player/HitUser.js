@@ -12,6 +12,7 @@ var attack_Sound : AudioClip;
 
 // 효과
 var woundEffect : Transform;
+var hpUpEffect : Transform;
 private var beforeEffect : Transform;
 
 private var userDie : boolean;
@@ -42,18 +43,29 @@ function PlayerDie()
 
 function OnTriggerEnter(target : Collider)
 {
-/*	game_manager.SendMessage("Check_motion", transform.gameObject);
-	if(CheckMotion.motion == MOTION.ducking || CheckMotion.motion == MOTION.die) return; */
-	
 	if(PlayerController.playerMotion == "dodge")
-	{
-		print("피하는중!");
 		return;
-	}
 	
 	if(target.gameObject.tag == "magic"){
 		HP.hero_hp -= 10;
 		player.SetBool("idleToWound", true);
+		return;
+	}
+	
+	if(target.gameObject.tag == "Trap")
+	{
+		if(target.name == "HpDownTrap")
+		{
+			HP.hero_hp -= 10;
+			player.SetBool("idleToWound", true);
+			WoundEffect();
+		}
+		else if(target.name == "HpUpTrap")
+		{
+			HP.hero_hp += 15;
+			HpUpEffect();
+		}	
+		
 		return;
 	}
 	
@@ -66,7 +78,7 @@ function OnTriggerEnter(target : Collider)
 					HP.hero_hp = HP.hero_hp - Attack_check(target);
 					player.SetBool("idleToWound", true);
 					PlayAttackSound();
-					Effect();
+					WoundEffect();
 				//}
 			}
 		}
@@ -74,7 +86,7 @@ function OnTriggerEnter(target : Collider)
 		{
 			if(target.transform.root.animation["attack"].normalizedTime >= 0.3){
 				if(target.transform.root.tag == "monster"){
-					Effect();
+					WoundEffect();
 					HP.hero_hp = HP.hero_hp - Attack_check(target);
 					player.SetBool("idleToWound", true);
 					PlayAttackSound();
@@ -122,14 +134,23 @@ function Attack_check(target : Collider) : int{
 	}
 }
 
-function Effect() { 
-	print("이펙트!");
+function WoundEffect() { 
 	var position = transform.position;
 	position.z -= 3;
 	position.y += 6;
 	if(beforeEffect != null)
 		Destroy(beforeEffect.gameObject);
 	beforeEffect = Instantiate(woundEffect, position, Random.rotation);//Random.rotation);
+}
+function HpUpEffect()
+{
+	var position = transform.position;
+	position.x -= 1;
+	position.z -= 3;
+	position.y += 6;
+	var effect : Transform = Instantiate(hpUpEffect, position, Random.rotation);//Random.rotation);
+	yield WaitForSeconds(3);
+	Destroy(effect.gameObject);
 }
 function PlayAttackSound()
 {
