@@ -51,7 +51,6 @@ function Update () {
 	
 	if(die == false)
 	{
-		user.transform.root.SendMessage("Check_Motion", SendMessageOptions.DontRequireReceiver);
 		if((di < visible && di > range) || (di <= range && (PlayerController.moveforce == 1 && PlayerController.frontSight == false))){
 			Move();
 		}else if(di <= range && (PlayerController.player_die == false)){

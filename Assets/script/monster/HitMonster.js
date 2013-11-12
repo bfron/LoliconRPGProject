@@ -55,7 +55,6 @@ function Update(){
 function OnTriggerEnter(target : Collider)
 {
 	if(target.gameObject.name == "weapon_mace"){
-		target.transform.root.SendMessage("Check_Motion", SendMessageOptions.DontRequireReceiver);
 		if(PlayerController.playerMotion != "idle" && PlayerController.playerMotion != "run" && PlayerController.playerMotion != "wound" && PlayerController.monsterAttack == true) // 플레이어가 공격중일 때만
 		{
 			HP.enemy_hp = HP.enemy_hp - Attack_check();

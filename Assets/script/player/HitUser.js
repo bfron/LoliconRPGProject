@@ -45,7 +45,6 @@ function OnTriggerEnter(target : Collider)
 /*	game_manager.SendMessage("Check_motion", transform.gameObject);
 	if(CheckMotion.motion == MOTION.ducking || CheckMotion.motion == MOTION.die) return; */
 	
-	transform.SendMessage("Check_Motion", SendMessageOptions.DontRequireReceiver);
 	if(PlayerController.playerMotion == "dodge")
 	{
 		print("피하는중!");
@@ -75,10 +74,11 @@ function OnTriggerEnter(target : Collider)
 		{
 			if(target.transform.root.animation["attack"].normalizedTime >= 0.3){
 				if(target.transform.root.tag == "monster"){
+					Effect();
 					HP.hero_hp = HP.hero_hp - Attack_check(target);
 					player.SetBool("idleToWound", true);
 					PlayAttackSound();
-					Effect();
+					
 				}
 			}
 		}
@@ -130,9 +130,6 @@ function Effect() {
 	if(beforeEffect != null)
 		Destroy(beforeEffect.gameObject);
 	beforeEffect = Instantiate(woundEffect, position, Random.rotation);//Random.rotation);
-/*	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
-	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
-	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation); */
 }
 function PlayAttackSound()
 {

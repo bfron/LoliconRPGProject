@@ -29,6 +29,8 @@ private var touchedNumber : int;
 
 static var player_die : boolean;
 
+var maceTrail : Transform; // 칼의 궤적을 그린다.
+
 function Start () {
 
 	player = transform.GetComponent(Animator);
@@ -43,27 +45,28 @@ function Start () {
 }
 function Check_Motion()
 {
-	if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.idle0"))
+	if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.idle0") && playerMotion != "idle")
 		playerMotion = "idle";
-	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.attack0"))
+	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.attack0") && playerMotion != "attack0")
 		playerMotion = "attack0";
-	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.attack1"))
+	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.attack1") && playerMotion != "attack1")
 		playerMotion = "attack1";
-	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.skill2"))
+	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.skill2") && playerMotion != "skill2")
 		playerMotion = "skill2";
-	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.death"))
+	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.death") && playerMotion != "death")
 		playerMotion = "death";
-	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.wound"))
+	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.wound") && playerMotion != "wound")
 		playerMotion = "wound";
-	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.run"))
+	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.run") && playerMotion != "run")
 		playerMotion = "run";
-	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.dodge"))
+	else if(player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.dodge") && playerMotion != "dodge")
 		playerMotion = "dodge";
 	
 }
 function Update () {
 	check_position (); // 카메라 포지션 설정
-	
+	Check_Motion();
+
 	if(!player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.idle0")) // 캐릭터 동작 상태가 idle 상태가 아닐 경우 모든 상태 초기화.
 	{
 		player.SetBool("idleToAttack1", false);
@@ -74,7 +77,10 @@ function Update () {
 		player.SetBool("idleToRun", false);
 	}
 	
-	cameraback = false;
+	if(playerMotion != "idle" && playerMotion != "death" && playerMotion != "wound" && playerMotion != "run" && playerMotion != "dodge")
+		maceTrail.gameObject.SetActive(true);
+	else
+		maceTrail.gameObject.SetActive(false);
 	
 	if(Input.GetButton("Touch")) // 터치가 입력 된 경우 터치 처리 함수 실행.
 		Get_touch();
@@ -221,6 +227,8 @@ function Screen_6()
 		touched = true;
 		touchedNumber = 6;
 		
+		cameraback = false;
+		
 		if(frontSight == false)
 			turn();
 			
@@ -293,7 +301,6 @@ function target_click() : boolean // 타겟을 터치 했을 때 처리 -> 기�
 		
 		var dist = ClickObject.target.transform.position.x - transform.position.x;
 		
-		Check_Motion();
 		if(dist <= range && (ClickObject.target.tag == "monster" || ClickObject.target.tag == "boss")) { // 타겟이 몬스터, 보스일 경우 처리
 			if(ClickObject.target == hitInfo.collider.gameObject && playerMotion != "attack0" && playerMotion != "attack1" && playerMotion != "skill2") {
 				monsterAttack = true;
