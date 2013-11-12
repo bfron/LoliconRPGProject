@@ -43,10 +43,12 @@ function Update() {
 	{
 		game_manager.SendMessage("Click_object", null);
 		if(ClickObject.target == null) return;
+		
 		if(ClickObject.target.tag == "monster" && !enemy_hp && !ClickObject.target.animation.IsPlaying("die"))
 		{
 			game_manager.SendMessage("Set_monster", ClickObject.target.transform);
 			enemy_hp = SetMonster.hp;
+			print("뭐야 : " + SetMonster.hp + ", " +  ClickObject.target.transform.name);
 			max_enemy_hp = SetMonster.hp;
 		}
 		else if(ClickObject.target.tag == "boss" && !enemy_hp && !ClickObject.target.animation.IsPlaying("die") && !hp_set_ok) 

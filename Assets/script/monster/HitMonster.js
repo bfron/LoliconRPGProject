@@ -14,6 +14,10 @@ private var skil_damage : float;
 
 // 소리
 var attack_Sound : AudioClip;
+private var beforeEffect : Transform;
+
+// 효과
+var woundEffect : Transform;
 
 function Start(){
 	game_manager = GameObject.Find("GameManager");
@@ -28,7 +32,6 @@ function Start(){
 }
 
 function Update(){
-
 	if(HP.enemy_hp <=0 && fight == true && die == 0){
 		HP.enemy_hp = 0;
 		
@@ -61,7 +64,7 @@ function OnTriggerEnter(target : Collider)
 			PlayerController.monsterAttack = false;
 			transform.animation.Play("gethit");
 			PlayAttackSound();
-			Effect(target);
+			WoundEffect();
 		}
 	}
 }
@@ -78,7 +81,15 @@ function Attack_check() : int{
 		return user_damage * sword_damage * skil_damage;
 	}
 }
-
+function WoundEffect() { 
+	var position = transform.position;
+	position.z -= 3;
+	position.y += 6;
+	if(beforeEffect != null)
+		Destroy(beforeEffect.gameObject);
+	beforeEffect = Instantiate(woundEffect, position, Random.rotation);//Random.rotation);
+}
+/*
 function Effect (target : Collider) {
 	var position = transform.position;
 	position.y += 6.5;
@@ -91,7 +102,7 @@ function Effect (target : Collider) {
 	spark = Instantiate(Resources.Load("Sparks"), position, Random.rotation);
 //	var step = Instantiate(Resources.Load("WaterStep"), position, target.transform.rotation);
 //	step = Instantiate(Resources.Load("WaterStep"), position, target.transform.rotation);
-}
+}*/
 function PlayAttackSound()
 {
 	if(audio.isPlaying == false)

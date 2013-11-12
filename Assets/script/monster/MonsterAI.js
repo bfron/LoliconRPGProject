@@ -161,7 +161,7 @@ function Uncasting () {
 }
 
 function Set_monster() {
-	if(transform.name == "해골 병사(Clone)"){
+	if(transform.name == "해골 병사(Clone)" || transform.name == "해골 병사"){
 		visible = 60;
 		range = 10;
 		speed = 20;
@@ -169,7 +169,8 @@ function Set_monster() {
 		hp = 20;
 		app_type = 1;
 		att_type = 1;
-	}else if(transform.name == "해골 전사(Clone)"){
+	}else if(transform.name == "해골 전사(Clone)" || transform.name == "해골 전사"){
+		print("나는 해골전사!");
 		visible = 80;
 		range = 10;
 		speed = 15;
@@ -177,7 +178,7 @@ function Set_monster() {
 		hp = 35;
 		app_type = 1;
 		att_type = 2;
-	}else if(transform.name == "해골 창사(Clone)"){
+	}else if(transform.name == "해골 창사(Clone)" || transform.name == "해골 창사"){
 		visible = 60;
 		range = 14;
 		speed = 15;
@@ -185,7 +186,7 @@ function Set_monster() {
 		hp = 30;
 		app_type = 2;
 		att_type = 3;
-	}else if(transform.name == "해골 법사(Clone)"){
+	}else if(transform.name == "해골 법사(Clone)" || transform.name == "해골 법사"){
 		visible = 150;
 		range = 12;
 		speed = 15;
