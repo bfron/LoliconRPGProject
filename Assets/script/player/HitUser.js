@@ -62,7 +62,7 @@ function OnTriggerEnter(target : Collider)
 		}
 		else if(target.name == "HpUpTrap")
 		{
-			HP.hero_hp += 15;
+			HP.hero_hp += 35;
 			HpUpEffect();
 		}	
 		
@@ -73,14 +73,15 @@ function OnTriggerEnter(target : Collider)
 	{
 		if(target.transform.root.tag == "boss")
 		{
-			if(target.transform.root.animation["attack 3"].normalizedTime >= 0.3 || target.transform.root.animation["attack2"].normalizedTime >= 0.4){
+			print("보스냐?");
+			//if(target.transform.root.animation["attack 3"].normalizedTime >= 0.3 || target.transform.root.animation["attack2"].normalizedTime >= 0.4){
 				//if(target.transform.root.tag == "monster"){
 					HP.hero_hp = HP.hero_hp - Attack_check(target);
 					player.SetBool("idleToWound", true);
 					PlayAttackSound();
 					WoundEffect();
 				//}
-			}
+			
 		}
 		else
 		{
@@ -110,32 +111,37 @@ function Attack_check(target : Collider) : int{
 	}else{
 		target.transform.root.SendMessage("ReturnDamage");
 	}
-	game_manager.SendMessage("Check_motion", target.gameObject);
-	//game_manager.SendMessage("Set_monster",target.transform.root);
-	if(target.transform.root.tag != "boss"){
-		if(CheckMotion.motion == MOTION.idle){
+	
+	if(target.transform.root.tag != "boss")
+	{
+		game_manager.SendMessage("Check_motion", target.gameObject);
+		//game_manager.SendMessage("Set_monster",target.transform.root);
+		if(target.transform.root.tag != "boss"){
+			if(CheckMotion.motion == MOTION.idle){
+				return 0;
+			}
+		}
+		if(CheckMotion.motion == MOTION.attack){
+			fight = true;
+			skil_damage = 1;
+			return SetMonster.damage * skil_damage;
+		}
+		if(target.transform.root.animation.IsPlaying("idle") == true){
 			return 0;
 		}
+		if(target.transform.root.animation.IsPlaying("attack2") == true){
+			fight = true;
+			skil_damage = 1;
+			return monster_damage * skil_damage;
+		}
+		if(target.transform.root.animation.IsPlaying("attack 3") == true){
+			fight = true;
+			skil_damage = 1.5;
+			return monster_damage * skil_damage;
+		}
 	}
-	if(CheckMotion.motion == MOTION.attack){
-		fight = true;
-		skil_damage = 1;
-		return SetMonster.damage * skil_damage;
-	}
-	
-	if(target.transform.root.animation.IsPlaying("idle") == true){
-		return 0;
-	}
-	if(target.transform.root.animation.IsPlaying("attack2") == true){
-		fight = true;
-		skil_damage = 1;
-		return monster_damage * skil_damage;
-	}
-	if(target.transform.root.animation.IsPlaying("attack 3") == true){
-		fight = true;
-		skil_damage = 1.5;
-		return monster_damage * skil_damage;
-	}
+	else
+		return monster_damage;
 }
 
 function WoundEffect() { 

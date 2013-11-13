@@ -51,7 +51,7 @@ function Update() {
 			print("뭐야 : " + SetMonster.hp + ", " +  ClickObject.target.transform.name);
 			max_enemy_hp = SetMonster.hp;
 		}
-		else if(ClickObject.target.tag == "boss" && !enemy_hp && !ClickObject.target.animation.IsPlaying("die") && !hp_set_ok) 
+		else if(ClickObject.target.tag == "boss" && !enemy_hp && !hp_set_ok) 
 		{
 			hp_set_ok = true;
 		   enemy_hp = 100;

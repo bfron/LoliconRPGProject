@@ -172,7 +172,6 @@ function Screen_2()
 		touched = true;
 		touchedNumber = 2;
 		
-		HP.hero_hp -= 10; // 테스트용
 	}
 }
 function Screen_3()

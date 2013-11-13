@@ -16,7 +16,7 @@ private var tempTextString : String;
 
 function Start () {
 	ani_playing = false;
-	ani_num = 7;
+	ani_num = 1;
 	Show1();
 	
 	BonusMessage.bonusOk = false;

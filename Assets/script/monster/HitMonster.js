@@ -21,11 +21,9 @@ var woundEffect : Transform;
 
 function Start(){
 	game_manager = GameObject.Find("GameManager");
+	
 	transform.animation["gethit"].speed = 2;
-	if(transform.tag == "boss")
-		transform.animation["death"].speed = 0.5;
-	else
-		transform.animation["die"].speed = 2;
+	transform.animation["die"].speed = 2;
 		
 	sword_damage = 1;
 	user_damage = 8;
@@ -37,9 +35,10 @@ function Update(){
 		
 		if(transform.tag == "boss")
 		{
-			transform.gameObject.animation.Play("death");
-			BossAI.die = true;
-			game_manager.SendMessage("Fadeout", "stage05", SendMessageOptions.DontRequireReceiver);
+			//transform.gameObject.animation.Play("death");
+//			BossAI.die = true;
+			print("보스 다이 으앙쥬금");
+			//game_manager.SendMessage("Fadeout", "stage05", SendMessageOptions.DontRequireReceiver);
 		}
 		else
 		{
@@ -62,7 +61,9 @@ function OnTriggerEnter(target : Collider)
 		{
 			HP.enemy_hp = HP.enemy_hp - Attack_check();
 			PlayerController.monsterAttack = false;
-			transform.animation.Play("gethit");
+			if(transform.tag != "boss")
+				transform.animation.Play("gethit");
+
 			PlayAttackSound();
 			WoundEffect();
 		}

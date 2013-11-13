@@ -1,7 +1,10 @@
 ﻿#pragma strict
 
 function Start () {
-	DontDestroyOnLoad(transform.gameObject);
+	if(Application.loadedLevelName != "stage06_expansion" && Application.loadedLevelName != "deathStage")
+		DontDestroyOnLoad(transform.gameObject);
+	else
+		Destroy(transform.gameObject);
 }
 
 function Update () {

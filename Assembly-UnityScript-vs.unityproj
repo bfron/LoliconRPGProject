@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\script\BGM.js" />
-     <Compile Include="Assets\script\BossAI.js" />
+     <Compile Include="Assets\script\Boss\BossAI.js" />
+     <Compile Include="Assets\script\Boss\HitBoss.js" />
+     <Compile Include="Assets\script\BossAI~.js" />
      <Compile Include="Assets\script\GameManager\Button.js" />
      <Compile Include="Assets\script\GameManager\CheckMotion.js" />
      <Compile Include="Assets\script\GameManager\ClickObject.js" />

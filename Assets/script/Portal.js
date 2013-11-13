@@ -27,5 +27,7 @@ function NextStage()
 		Application.LoadLevel("stage05");
 	else if(Application.loadedLevelName == "stage05")
 		Application.LoadLevel("stage06");
+	else if(Application.loadedLevelName == "stage06")
+		Application.LoadLevel("stage06_expansion");
 	
 }
