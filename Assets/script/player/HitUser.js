@@ -84,15 +84,19 @@ function OnTriggerEnter(target : Collider)
 		}
 		else
 		{
-			if(target.transform.root.animation["attack"].normalizedTime >= 0.3){
-				if(target.transform.root.tag == "monster"){
-					WoundEffect();
-					HP.hero_hp = HP.hero_hp - Attack_check(target);
-					player.SetBool("idleToWound", true);
-					PlayAttackSound();
+			/*if(target.transform.root.animation["attack"].normalizedTime >= 0.3){
+				if(target.transform.root.tag == "monster"){*/
+				if(target.transform.root.tag == "monster")
+				{
+					if(target.transform.root.animation["attack"].normalizedTime >= 0.3)
+					{
+						WoundEffect();
+						HP.hero_hp = HP.hero_hp - Attack_check(target);
+						player.SetBool("idleToWound", true);
+						PlayAttackSound();
+					}
 					
 				}
-			}
 		}
 	}
 	

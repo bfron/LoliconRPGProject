@@ -39,7 +39,15 @@ function Start () {
 	
 	amtMove = speed * Time.deltaTime;
 	die = false;
-	Set_monster();//game_manager.SendMessage("Set_monster",transform);
+	game_manager.SendMessage("Set_monster",transform);
+	
+	visible = SetMonster.visible;
+	range = SetMonster.range;
+	speed = SetMonster.speed;
+	damage = SetMonster.damage;
+	hp = SetMonster.hp;
+	app_type = SetMonster.app_type;
+	att_type = SetMonster.att_type;
 }
 
 function Update () {
@@ -159,7 +167,7 @@ function Uncasting () {
 		Destroy(dummy_fireball.gameObject);
 	}
 }
-
+/*
 function Set_monster() {
 	if(transform.name == "해골 병사(Clone)" || transform.name == "해골 병사"){
 		visible = 60;
@@ -196,7 +204,7 @@ function Set_monster() {
 		att_type = 1;
 	}
 	transform.animation["attack"].speed = 0.7;
-}
+} */
 
 function ReturnDamage() : int
 {

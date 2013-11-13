@@ -34,7 +34,7 @@ function Update () {
 			if(!hot) Hot_place();
 		}
 	}
-	*/
+	
 	if(user.transform.position.x >= 1121) {
 		if(!dark) {
 			Fadeout("stage02");
@@ -57,7 +57,7 @@ function Update () {
 	}
 	if(user.transform.position.x > 389 && Application.loadedLevelName == "stage04") {
 		BossAI.visible = true;
-	}
+	} */
 }
 
 function Hot_place () {

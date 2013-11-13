@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: 4fc77b983de6d8f4e906e8da6ff1f78c
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: wall
+    100002: //RootNode
+    100004: roof
+    100006: wall op
+    100008: wall_window
+    100010: wall_stone op
+    100012: wall_window op
+    100014: wall_stone
+    100016: door
+    100018: roof op
+    100020: wood frame op
+    100026: wood frame
+    400000: wall
+    400002: //RootNode
+    400004: roof
+    400006: wall op
+    400008: wall_window
+    400010: wall_stone op
+    400012: wall_window op
+    400014: wall_stone
+    400016: door
+    400018: roof op
+    400020: wood frame op
+    400026: wood frame
+    2300000: wall
+    2300002: roof
+    2300004: wall op
+    2300006: wall_window
+    2300008: wall_stone op
+    2300010: wall_window op
+    2300012: wall_stone
+    2300014: door
+    2300016: roof op
+    2300018: wood frame op
+    2300024: wood frame
+    3300000: wall
+    3300002: roof
+    3300004: wall op
+    3300006: wall_window
+    3300008: wall_stone op
+    3300010: wall_window op
+    3300012: wall_stone
+    3300014: door
+    3300016: roof op
+    3300018: wood frame op
+    3300024: wood frame
+    4300000: wood frame standby
+    4300002: wood frame top
+    4300004: wood frame
+    4300006: wall original
+    4300008: wall stone original
+    4300010: wall with window original
+    4300012: wood frame column
+    4300014: wall stone original001
+    4300016: wall original001
+    4300018: roof test
+    4300020: wall with window original001
+    4300022: Object001
+    4300024: wood frame op
+    4300026: wood frame op
+    4300028: door
+    4300030: wall_stone
+    4300032: roof
+    4300034: wall_window
+    4300036: wall
+    4300038: roof op
+    4300040: wall_stone op
+    4300042: wall op
+    4300044: wall_window op
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  userData: 

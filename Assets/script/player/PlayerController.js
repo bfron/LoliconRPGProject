@@ -27,9 +27,11 @@ static var monsterAttack : boolean; // 몬스터를 공격하는지 여부
 private var touched : boolean;
 private var touchedNumber : int;
 
-static var player_die : boolean;
+static var player_die : boolean; // 플레이어는 쥬것는가
 
 var maceTrail : Transform; // 칼의 궤적을 그린다.
+
+private var controlStop : boolean;
 
 function Start () {
 
@@ -41,6 +43,7 @@ function Start () {
 	screenType = (Screen.height * 1.0) / (Screen.width * 1.0);
 	controller = GetComponent(CharacterController);
 	player_die = false;
+	controlStop = false;
 
 }
 function Check_Motion()
@@ -63,10 +66,14 @@ function Check_Motion()
 		playerMotion = "dodge";
 	
 }
+function PlayerStop()
+{
+	controlStop = true;
+}
 function Update () {
 	check_position (); // 카메라 포지션 설정
 	Check_Motion();
-
+	
 	if(!player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.idle0")) // 캐릭터 동작 상태가 idle 상태가 아닐 경우 모든 상태 초기화.
 	{
 		player.SetBool("idleToAttack1", false);
@@ -77,11 +84,19 @@ function Update () {
 		player.SetBool("idleToRun", false);
 	}
 	
+	
+	
 	if(playerMotion != "idle" && playerMotion != "death" && playerMotion != "wound" && playerMotion != "run" && playerMotion != "dodge")
 		maceTrail.gameObject.SetActive(true);
 	else
 		maceTrail.gameObject.SetActive(false);
 	
+	if(controlStop == true)
+	{
+		player.SetBool("runToIdle", true);
+		return;
+	}
+		
 	if(Input.GetButton("Touch")) // 터치가 입력 된 경우 터치 처리 함수 실행.
 		Get_touch();
 	else if(!Input.GetButton("Touch") && touched == true)	// 커맨드 입력 취소
@@ -187,12 +202,15 @@ function Screen_4()
 	
 		if(frontSight == true) // 캐릭터가 앞을 보고 있다면 돌리자
 			turn();
-			
-		moveforce = 1;
-		player.SetBool("idleToRun", true); // 달리는 애니메이션을 재생하라!
 		
-		if(camera_position > -10) 
-			camera_position -= 0.5;
+		if(playerMotion != "wound" || playerMotion != "dodge")
+		{	
+			moveforce = 1;
+			player.SetBool("idleToRun", true); // 달리는 애니메이션을 재생하라!
+			
+			if(camera_position > -10) 
+				camera_position -= 0.5;
+		}
 			
 			
 		
@@ -232,8 +250,11 @@ function Screen_6()
 		if(frontSight == false)
 			turn();
 			
-		moveforce = 1;
-		player.SetBool("idleToRun", true); // 달리는 애니메이션을 재생하라!
+		if(playerMotion != "wound" || playerMotion != "dodge")
+		{
+			moveforce = 1;
+			player.SetBool("idleToRun", true); // 달리는 애니메이션을 재생하라!
+		}
 	}
 	
 }
