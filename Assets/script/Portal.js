@@ -18,7 +18,10 @@ function NextStage()
 	fadePanel.animation.Play("fadeout");
 	yield WaitForSeconds(2);
 	if(Application.loadedLevelName == "stage01")
+	{
+		HP.hero_hp = 100;
 		Application.LoadLevel("stage02");
+	}
 	else if(Application.loadedLevelName == "stage02")
 		Application.LoadLevel("stage03");
 	else if(Application.loadedLevelName == "stage03")
@@ -28,6 +31,6 @@ function NextStage()
 	else if(Application.loadedLevelName == "stage05")
 		Application.LoadLevel("stage06");
 	else if(Application.loadedLevelName == "stage06")
-		Application.LoadLevel("stage06_expansion");
+		Application.LoadLevel("stage_Talk");
 	
 }

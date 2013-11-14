@@ -19,6 +19,14 @@ function Set_monster(monster : Transform) {
 		hp = 20;
 		app_type = 1;
 		att_type = 1;
+	}else if(monster.transform.name == "해골 병신(Clone)" || monster.transform.name == "해골 병신"){
+		visible = 20;
+		range = 10;
+		speed = 20;
+		damage = 1;
+		hp = 10;
+		app_type = 1;
+		att_type = 1;
 	}else if(monster.transform.name == "해골 전사(Clone)" || monster.transform.name == "해골 전사"){
 		visible = 80;
 		range = 10;

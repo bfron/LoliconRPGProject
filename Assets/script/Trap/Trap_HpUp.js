@@ -15,8 +15,8 @@ function OnTriggerEnter (target : Collider) {
 	{
 		if(enterCount == 0)
 			ActiveTrap();
-		else
-			OffTrap();
+		//else
+		//	OffTrap();
 	}
 }
 function ActiveTrap()

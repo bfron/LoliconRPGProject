@@ -9,24 +9,21 @@ private var hero_color : Color;
 private var enemy_color : Color;
 
 private var game_manager : GameObject;
-private var hero_hp_bar : GameObject;
-private var hero_hp_text : GameObject;
-private var enemy_hp_bar : GameObject;
-private var enemy_hp_text : GameObject;
 
 var heroHpGauge : Transform;
 
 private var hp_set_ok : boolean;
 
+
 function Start () {
 	game_manager = GameObject.Find("GameManager");
-	hero_hp_bar = GameObject.Find("HeroHpBar");
+/*	hero_hp_bar = GameObject.Find("HeroHpBar");
 	hero_hp_text = GameObject.Find("HeroHpText");
 	enemy_hp_bar = GameObject.Find("EnemyHpBar");
-	enemy_hp_text = GameObject.Find("EnemyHpText");
+	enemy_hp_text = GameObject.Find("EnemyHpText"); */
 	hero_color = Color.white;
 	enemy_color = Color.white;
-	
+		
 	hp_set_ok = false;
 	
 	if(Application.loadedLevelName=="stage01")

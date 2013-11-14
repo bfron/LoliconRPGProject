@@ -22,9 +22,6 @@ function Start () {
 	game_manager = GameObject.Find("GameManager");
 	player = transform.GetComponent(Animator);
 	beforeEffect = null;
-/*	transform.animation["run"].speed = 2.5;
-	transform.animation["attack"].speed = 1.5;
-	transform.animation["gethit"].speed = 0.5; */
 }
 
 function Update() {
@@ -63,6 +60,7 @@ function OnTriggerEnter(target : Collider)
 		else if(target.name == "HpUpTrap")
 		{
 			HP.hero_hp += 35;
+			Destroy(target.gameObject);
 			HpUpEffect();
 		}	
 		
@@ -73,15 +71,10 @@ function OnTriggerEnter(target : Collider)
 	{
 		if(target.transform.root.tag == "boss")
 		{
-			print("보스냐?");
-			//if(target.transform.root.animation["attack 3"].normalizedTime >= 0.3 || target.transform.root.animation["attack2"].normalizedTime >= 0.4){
-				//if(target.transform.root.tag == "monster"){
-					HP.hero_hp = HP.hero_hp - Attack_check(target);
-					player.SetBool("idleToWound", true);
-					PlayAttackSound();
-					WoundEffect();
-				//}
-			
+			HP.hero_hp = HP.hero_hp - Attack_check(target);
+			player.SetBool("idleToWound", true);
+			PlayAttackSound();
+			WoundEffect();
 		}
 		else
 		{
@@ -116,10 +109,8 @@ function Attack_check(target : Collider) : int{
 	{
 		game_manager.SendMessage("Check_motion", target.gameObject);
 		//game_manager.SendMessage("Set_monster",target.transform.root);
-		if(target.transform.root.tag != "boss"){
-			if(CheckMotion.motion == MOTION.idle){
-				return 0;
-			}
+		if(CheckMotion.motion == MOTION.idle){
+			return 0;
 		}
 		if(CheckMotion.motion == MOTION.attack){
 			fight = true;

@@ -237,7 +237,7 @@ function Show1() {
 					dongsang.localScale.x =0;
 					
 					yield WaitForSeconds(1);
-					Application.LoadLevel("stage04");
+					Application.LoadLevel("stage06_expansion");
 					break;
 	}
 }

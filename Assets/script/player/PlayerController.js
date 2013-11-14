@@ -68,11 +68,15 @@ function Check_Motion()
 }
 function PlayerStop()
 {
-	controlStop = true;
+	if(controlStop == false)
+		controlStop = true;
+	else
+		controlStop = false;
 }
 function Update () {
 	check_position (); // 카메라 포지션 설정
 	Check_Motion();
+	transform.position.z = -4;
 	
 	if(!player.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.idle0")) // 캐릭터 동작 상태가 idle 상태가 아닐 경우 모든 상태 초기화.
 	{
@@ -352,5 +356,5 @@ function check_position () { // 카메라 포지션, 플레이어 포지션 설�
 	
 	moveforce = 0;
 	jumpforce = false;
-	transform.position.z = -4;
+	
 }

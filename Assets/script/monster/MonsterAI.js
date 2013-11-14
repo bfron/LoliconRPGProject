@@ -123,7 +123,6 @@ function Move()
 }
 function Attack()
 {
-
 	moveDirection.x = 0;
 	if(att_type == 1)	// 닥공!!
 	{

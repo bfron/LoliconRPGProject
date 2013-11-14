@@ -51,7 +51,6 @@ function Attack_check() : int{
 	if(PlayerController.playerMotion == "attack0"){
 		fight = true;
 		skil_damage = 1.0;
-		print("뭐냐 : " + user_damage * sword_damage * skil_damage);
 		return user_damage * sword_damage * skil_damage;
 	}
 	else if(PlayerController.playerMotion == "attack1"){

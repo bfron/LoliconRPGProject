@@ -65,6 +65,7 @@
      <Compile Include="Assets\script\Portal.js" />
      <Compile Include="Assets\script\Trap\Trap_HpDown.js" />
      <Compile Include="Assets\script\Trap\Trap_HpUp.js" />
+     <Compile Include="Assets\script\Tutorials\Tutorial.js" />
      <Compile Include="Assets\script\UISet.js" />
      <Compile Include="Assets\script\camera_move.js" />
      <Compile Include="Assets\script\monster\HitMonster.js" />
