@@ -52,7 +52,7 @@ function Show()
 					yield WaitForSeconds(0.5);
 					dongsang.animation.Play("DongsangClose");
 					yield WaitForSeconds(2);
-					Application.LoadLevel("stage00");
+					Application.LoadLevel("Title");
 					break;
 	}
 }

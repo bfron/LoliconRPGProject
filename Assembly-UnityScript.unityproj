@@ -63,6 +63,7 @@
      <Compile Include="Assets\script\Message\endingMessage.js" />
      <Compile Include="Assets\script\Message\prologue.js" />
      <Compile Include="Assets\script\Portal.js" />
+     <Compile Include="Assets\script\TitleControl.js" />
      <Compile Include="Assets\script\Trap\Trap_HpDown.js" />
      <Compile Include="Assets\script\Trap\Trap_HpUp.js" />
      <Compile Include="Assets\script\Tutorials\Tutorial.js" />

@@ -50,12 +50,12 @@ function OnTriggerEnter(target : Collider)
 function Attack_check() : int{
 	if(PlayerController.playerMotion == "attack0"){
 		fight = true;
-		skil_damage = 1.0;
+		skil_damage = 1.5;
 		return user_damage * sword_damage * skil_damage;
 	}
 	else if(PlayerController.playerMotion == "attack1"){
 		fight = true;
-		skil_damage = 1.3;
+		skil_damage = 2;
 		return user_damage * sword_damage * skil_damage;
 	}
 }

@@ -31,7 +31,7 @@ function Show() {
 		
 		case 2 : 	animation.Play("MessageBoxClose");
 					yield WaitForSeconds(2);
-					Application.LoadLevel("stage00");
+					Application.LoadLevel("Title");
 					break;
 	}
 	
